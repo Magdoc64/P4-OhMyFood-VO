@@ -15,7 +15,8 @@ body {
   flex-wrap: wrap;
   width: 100%;
   min-width: 375px;
-  margin: 0;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 header {
@@ -90,15 +91,16 @@ main {
   margin: 0;
 }
 
-.menu {
+#container {
   width: 100%;
   display: flex;
   flex-direction: column;
   background-color: #f3f3f3;
 }
 @media (min-width: 768px) {
-  .menu {
-    background-color: white;
+  #container {
+    width: 55%;
+    margin: 0 auto;
   }
 }
 
@@ -123,17 +125,10 @@ main {
   background-color: #f3f3f3;
   position: relative;
   top: -55px;
+  width: 100%;
 }
-@media (min-width: 768px) and (max-width: 1439.99px) {
+@media (min-width: 768px) {
   .carte {
-    width: 75%;
-    margin: 0 auto;
-    justify-content: center;
-  }
-}
-@media (min-width: 1440px) {
-  .carte {
-    width: 50%;
     margin: 0 auto;
     justify-content: center;
   }
@@ -162,8 +157,6 @@ main {
 }
 .carte__restaurant__nom--like:hover {
   cursor: pointer;
-}
-.carte__restaurant__nom--like:active {
   animation: coeur 400ms forwards;
   -moz-animation: coeur 400ms forwards;
   -webkit-animation: coeur 400ms forwards;
@@ -189,6 +182,7 @@ main {
 }
 .carte__menu__plat--lien {
   width: 100%;
+  display: flex;
 }
 .carte__menu__plat--lien-items {
   display: flex;
@@ -201,19 +195,38 @@ main {
   padding: 10px;
   width: 100%;
 }
+.carte__menu__plat--lien-items:hover {
+  cursor: pointer;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 85%;
+}
+.carte__menu__plat--lien-items:hover + .carte__menu__plat--lien-items--coche {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  animation: coche 400ms forwards;
+}
 .carte__menu__plat--lien-items--text {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.carte__menu__plat--lien-items--text p, .carte__menu__plat--lien-items--text h3 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .carte__menu__plat--lien-items--prix p {
   font-size: 15px;
   font-weight: 700;
 }
-.carte__menu__plat--lien-items:hover {
-  cursor: pointer;
-}
-.carte__menu__plat--coche {
+.carte__menu__plat--lien-items--coche {
+  color: #fff;
   display: none;
 }
 .carte__commande {
@@ -243,8 +256,20 @@ main {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
+@keyframes coche {
+  0% {
+    width: 0%;
+  }
+  100% {
+    background: #99e2d0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 15%;
+  }
+}
 .entree, .plat, .dessert {
   margin: 15px 0;
+  transform: translateX(-9999px) translateY(-9999px);
 }
 @media (min-width: 768px) and (max-width: 1439.99px) {
   .entree, .plat, .dessert {
@@ -259,6 +284,42 @@ main {
   }
 }
 
+.entree {
+  animation: entree 1000ms 300ms forwards;
+}
+
+.plat {
+  animation: plat 1000ms 1300ms forwards;
+}
+
+.dessert {
+  animation: dessert 1000ms 2300ms forwards;
+}
+
+@keyframes entree {
+  0% {
+    transform: translateX(-9999px) translateY(-9999px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes plat {
+  0% {
+    transform: translateX(-9999px) translateY(-9999px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+@keyframes dessert {
+  0% {
+    transform: translateX(-9999px) translateY(-9999px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
 @keyframes coeur {
   0% {
     -webkit-text-stroke: 0.08em #000;

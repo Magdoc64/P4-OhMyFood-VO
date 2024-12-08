@@ -25,12 +25,18 @@ $bouton-linear-gradient-fin-transparent: #9356DCc4;
 $barre-recherche:#EAEAEA;
 $footer-color: #353535;
 
+$prog-duree:1000ms;
+$prog-delay-entree:300ms;
+$prog-delay-plat:$prog-duree + $prog-delay-entree;
+$prog-delay-dessert:$prog-duree + $prog-delay-plat;
+
 body {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     min-width: 375px;
-    margin:0;
+    max-width: 1440px;
+    margin:0 auto;
 }
 
 header{
@@ -108,20 +114,19 @@ main{
     
 }
 
-.menu{
+#container{
     width:100%;
     display: flex;
     flex-direction: column;
     background-color: $background-color;
 
     @media (min-width:768px){
-        background-color: white;
+        width:55%;
+        margin:0 auto;
     }
 }
 
 .restaurant-photo{
-    
-
     & img{
         width: 100%;
         height: 230px;
@@ -142,15 +147,9 @@ main{
     background-color: $background-color;
     position: relative;
     top:-55px;
+    width:100%;
 
-    @media (min-width:768px) and (max-width:1439.99px){
-        width:75%;
-        margin:0 auto;
-        justify-content: center;
-    }
-
-    @media (min-width:1440px){
-        width:50%;
+    @media (min-width:768px) {
         margin:0 auto;
         justify-content: center;
     }
@@ -178,14 +177,10 @@ main{
     
                 &:hover{
                     cursor: pointer;
-                }
-    
-                &:active{
                     animation: coeur 400ms forwards;
                     -moz-animation: coeur 400ms forwards;
                     -webkit-animation: coeur 400ms forwards;
                 }
-
             }
         }
     }
@@ -212,6 +207,7 @@ main{
         
         &--lien{
             width: 100%;
+            display: flex;
             
             &-items{
             display: flex;
@@ -222,11 +218,35 @@ main{
             border-radius: 15px;
             padding: 10px;
             width: 100%;
-    
+                
+                &:hover{
+                    cursor: pointer;
+                    border-top-right-radius:0;
+                    border-bottom-right-radius:0;
+                    width:85%;
+                }
+
+                &:hover + &--coche{
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    width:20%;
+                    animation: coche 400ms forwards;
+                }
+
                 &--text{
                     display: flex;
                     flex-direction: column;
                     gap:8px;
+                    overflow:hidden;
+                    white-space: nowrap;
+                    text-overflow:ellipsis;
+
+                    & p, h3{
+                        overflow:hidden;
+                        white-space: nowrap;
+                        text-overflow:ellipsis;
+                    }
                 }
                         
                 &--prix p{
@@ -234,15 +254,11 @@ main{
                     font-weight:700;
                 }
                 
+                &--coche{
+                    color:$police-contraste;
+                    display:none;
+                }
             }
-
-            &-items:hover{
-                cursor: pointer;
-            }
-        }
-
-        &--coche{
-            display:none;
         }
     }
 
@@ -275,8 +291,21 @@ main{
     }
 }
 
+@keyframes coche{
+    0%{
+      width:0%
+    }
+    100%{
+    background:#99e2d0;
+    border-top-right-radius:15px;
+    border-bottom-right-radius:15px;
+    width:15%;
+    }
+  }
+
 .entree, .plat, .dessert{
     margin: 15px 0;
+    transform:translateX(-9999px) translateY(-9999px);
     
     @media (min-width:768px) and (max-width:1439.99px){
         width:75%;
@@ -288,6 +317,42 @@ main{
         margin:15px auto;
     }
 }
+.entree{
+    animation: entree $prog-duree $prog-delay-entree forwards;
+}
+
+.plat{
+    animation: plat $prog-duree $prog-delay-plat forwards;
+}
+
+.dessert{
+    animation:dessert $prog-duree $prog-delay-dessert forwards;
+}
+
+@keyframes entree{
+    0%{
+      transform:translateX(-9999px) translateY(-9999px);
+    }
+    100%{
+      transform:translateX(0) translateY(0);
+    }
+  }
+  @keyframes plat{
+    0%{
+      transform:translateX(-9999px) translateY(-9999px);
+    }
+    100%{
+      transform:translateX(0) translateY(0);
+    }
+  }
+  @keyframes dessert{
+    0%{
+      transform:translateX(-9999px) translateY(-9999px);
+    }
+    100%{
+      transform:translateX(0) translateY(0);
+    }
+  }
 
 @keyframes coeur {
     0%{
