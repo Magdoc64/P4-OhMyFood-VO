@@ -64,15 +64,13 @@ p{
     margin:0;
 }
 
-#container{
+.container{
     width:100%;
     max-width: 1440px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     z-index: 1;
-    position:absolute;
-    
     transform:translateY(-9999px);
     animation: contenu 400ms 3000ms forwards;
 
@@ -99,8 +97,13 @@ p{
     justify-content:center;
     align-items: center;
     gap:10px;
-    position:relative;
-    margin-top: 40%;
+    position:fixed;
+    margin-top: 50%;
+
+    @media (min-width:768px){
+        margin-top: 30%;
+    }
+
   
     &__logo{
         background: linear-gradient(90deg,rgba(153,226,208,0.8)25%,rgba(238,130,238,0.8)72%);
@@ -110,7 +113,8 @@ p{
         color:transparent;
         font-size:50px;
         font-family:"Shrikhand", sans-serif;
-        animation: logo 3000ms ease-in-out;
+        animation: logo 1000ms ease-in-out;
+        animation-iteration-count: 3;
         
     }
     &__icon{
@@ -119,7 +123,8 @@ p{
         -webkit-background-clip:text;
         -moz-background-clip:text;
         color:transparent;
-        animation: icon 3000ms ease-in-out;
+        animation: icon 1000ms ease-in-out;
+        animation-iteration-count: 3;
     }
 }
 
@@ -303,7 +308,8 @@ main{
         gap: 10px;
         margin:10px 10px 30px 10px;
         padding: 10px 20px 10px 20px;
-        transition: all 600ms;
+        transition: all 600ms ease-in-out;
+
         &:hover{
             background:linear-gradient($bouton-linear-gradient-debut-transparent,$bouton-linear-gradient-fin-transparent);
             cursor:pointer;
@@ -503,6 +509,7 @@ main{
                     -webkit-text-stroke: 0.08em #000;
                     -moz-text-stroke:0.08em #000;
                     color:transparent;
+                    transition: all 600ms ease-in-out forwards;
 
                     @media (min-width:768px){
                         left:88%;
@@ -511,30 +518,17 @@ main{
 
                     &:hover{
                         cursor: pointer;
-                        animation: coeur 400ms forwards;
-                        -moz-animation: coeur 400ms forwards;
-                        -webkit-animation: coeur 400ms forwards;
+                        background: linear-gradient(0deg,$bouton-linear-gradient-debut 50%, $bouton-linear-gradient-fin 90%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -moz-background-clip: text;
+                        color:transparent;
+                        -webkit-text-stroke: transparent;
+                        -moz-text-stroke:transparent;   
                     }
                 }
             }
         }
-    }
-}
-
-@keyframes coeur {
-    0% {
-        -webkit-text-stroke: 0.08em #000;
-        -moz-text-stroke:0.08em #000;
-        color:transparent;   
-    }
-    100%{
-        background: linear-gradient(0deg,$bouton-linear-gradient-debut 50%, $bouton-linear-gradient-fin 90%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        color:transparent;
-        -webkit-text-stroke: transparent;
-        -moz-text-stroke:transparent;
     }
 }
 
