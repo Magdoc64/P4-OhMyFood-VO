@@ -465,10 +465,16 @@ main {
   padding: 6px 10px;
   border-radius: 3px;
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .restaurant__groupe__resultat--carte--lien--nouveau::after {
     top: 5%;
     left: 72%;
+  }
+}
+@media (min-width: 1024px) {
+  .restaurant__groupe__resultat--carte--lien--nouveau::after {
+    top: 5%;
+    left: 82%;
   }
 }
 .restaurant__groupe__resultat--carte--like {
@@ -512,6 +518,7 @@ main {
     flex-direction: row-reverse;
     gap: 50px;
     align-items: flex-end;
+    justify-content: flex-start;
     padding: 80px 50px 50px 0;
   }
 }
@@ -525,9 +532,13 @@ main {
     margin: 0;
   }
 }
+.footer__contenu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 @media (min-width: 768px) {
   .footer__contenu {
-    display: flex;
     flex-direction: row;
   }
 }
@@ -537,8 +548,11 @@ main {
   gap: 15px;
   margin: 5px;
 }
-@media (min-width: 768px) {
-  .footer__contenu {
-    gap: 30px;
-  }
+.footer__contenu--item--detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer__contenu--item--detail i {
+  width: 18px;
 }/*# sourceMappingURL=style.css.map */

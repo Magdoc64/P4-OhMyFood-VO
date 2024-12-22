@@ -495,9 +495,13 @@ main{
                     padding:6px 10px;
                     border-radius: 3px;
 
-                    @media(min-width:768px){
+                    @media(min-width:768px) and (max-width:1024px){
                         top:5%;
                         left:72%;
+                    }
+                    @media(min-width: 1024px){
+                        top:5%;
+                        left:82%;
                     }
                 }
 
@@ -545,6 +549,7 @@ main{
         flex-direction: row-reverse;
         gap:50px;
         align-items: flex-end;
+        justify-content: flex-start;
         padding:80px 50px 50px 0;
     }
 
@@ -559,21 +564,31 @@ main{
     }
 
     &__contenu{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+
         @media (min-width:768px) {
-            display:flex;
             flex-direction: row;
         }
 
         &--item{
-        display: flex;
-        justify-content: flex-start;
-        gap: 15px;
-        margin: 5px;
-        }
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+            margin: 5px; 
+        
 
-        @media (min-width:768px){
-            gap:30px;
-        }    
-    }
+            &--detail{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                & i{
+                    width: 18px;
+                }
+            } 
+        }
+    } 
 }
 

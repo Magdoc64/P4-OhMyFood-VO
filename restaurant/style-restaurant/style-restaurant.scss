@@ -57,22 +57,15 @@ h1{
 
 h2 {
     font-weight: 300;
+    font-size:16px;
     margin:0;
     text-transform: uppercase;
-
-    @media (min-width:1440px) {
-        font-size:22px;
-    }
 }
 
 h3 {
     font-size: 18px;
     font-weight: 500;
     margin:0;
-
-    @media (min-width:1440px) {
-        font-size:24px;
-    }
 }
 
 p{
@@ -227,7 +220,7 @@ main{
                 &:not(:hover){
                     animation: init-item 800ms ease alternate forwards;
                 }
-                
+
                 &:hover{
                     cursor: pointer;
                     animation: item 800ms ease alternate forwards;
@@ -313,7 +306,7 @@ main{
 
     100%{
         opacity: 1;
-        width:15%; 
+        width:16%; 
         transform: translateX(-15%);
     }
   }
@@ -391,7 +384,7 @@ main{
     }
   }
 
-.footer{
+  .footer{
     width: 100%;
     min-width: 375px;
     background-color: $footer-color;
@@ -399,11 +392,12 @@ main{
     font-weight: 400;
     color: $police-contraste;
 
-    @media (min-width:1280px) {
+    @media (min-width:768px) {
         display: flex;
         flex-direction: row-reverse;
         gap:50px;
         align-items: flex-end;
+        justify-content: flex-start;
         padding:80px 50px 50px 0;
     }
 
@@ -412,25 +406,36 @@ main{
         font-size: 30px;
         font-family: "shrikhand", sans-serif;
         
-        @media (min-width:1280px) {
+        @media (min-width:768px) {
             margin:0;
         }
     }
 
     &__contenu{
-        @media (min-width:1280px) {
-            display:flex;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+
+        @media (min-width:768px) {
             flex-direction: row;
         }
 
         &--item{
-        display: flex;
-        gap: 15px;
-        margin: 5px;
-        }
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+            margin: 5px; 
+        
 
-        @media (min-width:1280px){
-            gap:30px;
-        }    
-    }
+            &--detail{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                & i{
+                    width: 18px;
+                }
+            } 
+        }
+    } 
 }
