@@ -308,12 +308,11 @@ main{
         gap: 10px;
         margin:10px 10px 30px 10px;
         padding: 10px 20px 10px 20px;
-        transition: all 600ms ease-in-out;
+        animation: init-explorer 600ms ease-in-out forwards;
 
         &:hover{
-            background:linear-gradient($bouton-linear-gradient-debut-transparent,$bouton-linear-gradient-fin-transparent);
             cursor:pointer;
-            box-shadow:0 0 20px rgba(0,0,0,0.3);
+            animation: explorer 600ms ease-in-out forwards;
         }
 
         &--recherche{
@@ -321,7 +320,26 @@ main{
         }
     }
 }
-
+@keyframes explorer{
+    0%{
+        background: linear-gradient($bouton-linear-gradient-debut,$bouton-linear-gradient-fin);
+        box-shadow:0 4px 4px rgba(0,0,0,0.2);
+    }
+    100%{
+        background:linear-gradient($bouton-linear-gradient-debut-transparent,$bouton-linear-gradient-fin-transparent);
+        box-shadow:0 0 20px rgba(0,0,0,0.3);
+    }
+}
+@keyframes init-explorer {
+    0%{
+        background:linear-gradient($bouton-linear-gradient-debut-transparent,$bouton-linear-gradient-fin-transparent);
+        box-shadow:0 0 20px rgba(0,0,0,0.3);
+    }
+    100%{
+        background: linear-gradient($bouton-linear-gradient-debut,$bouton-linear-gradient-fin);
+        box-shadow:0 4px 4px rgba(0,0,0,0.2);
+    }
+}
 .fonctionnement{
     width: 100%;
     min-width: 375px;
@@ -340,9 +358,9 @@ main{
         padding:0 10px;
         width: 100%;
 
-        @media (min-width:768px){
+        /*@media (min-width:768px){
         margin-left: 3vw;
-        }
+        }*/
 
         &--etape{
             margin-top: 30px;
@@ -357,7 +375,7 @@ main{
                 flex-direction: row;
                 justify-content: space-between;
                 width:100%;
-                gap:0;
+                gap:10px;
                 margin-top: 15px;
             }
     
@@ -410,7 +428,7 @@ main{
 
     @media (min-width:768px){
         justify-content: flex-start;
-        padding: 2vw;
+        padding: 3vw;
     }
 
     &__groupe{
@@ -421,11 +439,11 @@ main{
         width:100%;
         padding: 0 10px;
         
-        &__titre{
+        /*&__titre{
             @media (min-width:768px) {
                 margin-left: 3vw;
             }
-        }
+        }*/
 
         &__resultat{
             display: flex;
@@ -437,7 +455,7 @@ main{
             @media (min-width:768px){
                 flex-direction: row;
                 flex-wrap: wrap;
-                gap:0;
+                gap:50px;
             }
      
             &--carte{
@@ -449,7 +467,7 @@ main{
     
                 @media (min-width:768px) {
                     width:45%;
-                    margin:1vw 1vw;
+                    /*margin:1vw 1vw;*/
                 }
                 
                 &--lien{
@@ -513,7 +531,7 @@ main{
                     -webkit-text-stroke: 0.08em #000;
                     -moz-text-stroke:0.08em #000;
                     color:transparent;
-                    transition: all 600ms ease-in-out forwards;
+                    animation: init-coeur 600ms ease-in-out forwards;
 
                     @media (min-width:768px){
                         left:88%;
@@ -522,20 +540,45 @@ main{
 
                     &:hover{
                         cursor: pointer;
-                        background: linear-gradient(0deg,$bouton-linear-gradient-debut 50%, $bouton-linear-gradient-fin 90%);
-                        background-clip: text;
-                        -webkit-background-clip: text;
-                        -moz-background-clip: text;
-                        color:transparent;
-                        -webkit-text-stroke: transparent;
-                        -moz-text-stroke:transparent;   
+                        animation: coeur 600ms ease-in-out forwards;  
                     }
                 }
             }
         }
     }
 }
-
+@keyframes coeur{
+    0%{
+        -webkit-text-stroke: 0.08em #000;
+        -moz-text-stroke:0.08em #000;
+        color:transparent;
+    }
+    100%{
+        background: linear-gradient(0deg,$bouton-linear-gradient-debut 50%, $bouton-linear-gradient-fin 90%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        color:transparent;
+        -webkit-text-stroke: transparent;
+        -moz-text-stroke: transparent;
+    }
+}
+@keyframes init-coeur{
+    0%{
+        background: linear-gradient(0deg,$bouton-linear-gradient-debut 50%, $bouton-linear-gradient-fin 90%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        color:transparent;
+        -webkit-text-stroke: transparent;
+        -moz-text-stroke:transparent;
+    }
+    100%{
+        -webkit-text-stroke: 0.08em #000;
+        -moz-text-stroke:0.08em #000;
+        color:transparent;
+    }
+}
 .footer{
     width: 100%;
     min-width: 375px;
