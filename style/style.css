@@ -223,6 +223,11 @@ p {
   display: flex;
   justify-content: center;
 }
+@media (min-width: 768px) {
+  .header__logo {
+    margin-bottom: 10px;
+  }
+}
 .header__barre-recherche {
   background-color: #EAEAEA;
   display: flex;
@@ -315,13 +320,13 @@ main {
 .fonctionnement {
   width: 100%;
   min-width: 375px;
-  padding: 11vw 4vw 11vw 8vw;
+  padding: 11vw 2vw;
   display: flex;
   background-color: #fff;
 }
 @media (min-width: 768px) {
   .fonctionnement {
-    padding: 3vw;
+    padding: 2vw 6vw;
   }
 }
 .fonctionnement__groupe {
@@ -330,26 +335,23 @@ main {
   align-items: flex-start;
   padding: 0 10px;
   width: 100%;
-  /*@media (min-width:768px){
-  margin-left: 3vw;
-  }*/
 }
 .fonctionnement__groupe--etape {
   margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
   width: 100%;
+  display: grid;
+  grid-template-rows: 72px 72px 72px;
+  grid-template-columns: 100%;
+  grid-gap: 18px;
+  padding-left: 5px;
   counter-reset: css-counter 0;
 }
 @media (min-width: 768px) {
   .fonctionnement__groupe--etape {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    gap: 10px;
     margin-top: 15px;
+    grid-template-rows: 72px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
   }
 }
 .fonctionnement__groupe--etape--detail {
@@ -392,13 +394,13 @@ main {
   min-width: 375px;
   display: flex;
   flex-direction: column;
-  padding: 11vw 4vw 11vw 8vw;
+  padding: 11vw 2vw;
   background-color: #f3f3f3;
 }
 @media (min-width: 768px) {
   .restaurant {
     justify-content: flex-start;
-    padding: 3vw;
+    padding: 2vw 6vw;
   }
 }
 .restaurant__groupe {
@@ -408,24 +410,21 @@ main {
   gap: 20px;
   width: 100%;
   padding: 0 10px;
-  /*&__titre{
-      @media (min-width:768px) {
-          margin-left: 3vw;
-      }
-  }*/
 }
 .restaurant__groupe__resultat {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 20px;
   width: 100%;
+  display: grid;
+  grid-template-rows: 251px 251px 251px 251px;
+  grid-template-columns: 100%;
+  grid-row-gap: 18px;
+  grid-column-gap: 40px;
 }
 @media (min-width: 768px) {
   .restaurant__groupe__resultat {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 50px;
+    grid-template-rows: 251px 251px;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 50px;
+    grid-column-gap: 100px;
   }
 }
 .restaurant__groupe__resultat--carte {
@@ -433,17 +432,14 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   position: relative;
-}
-@media (min-width: 768px) {
-  .restaurant__groupe__resultat--carte {
-    width: 45%;
-    /*margin:1vw 1vw;*/
-  }
 }
 .restaurant__groupe__resultat--carte--lien {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 .restaurant__groupe__resultat--carte--lien img {
   width: 100%;
@@ -452,11 +448,6 @@ main {
   border-top-right-radius: 10px;
   -o-object-fit: cover;
      object-fit: cover;
-}
-@media (min-width: 768px) {
-  .restaurant__groupe__resultat--carte--lien img {
-    height: 245px;
-  }
 }
 .restaurant__groupe__resultat--carte--lien--info {
   display: flex;
@@ -562,7 +553,7 @@ main {
     gap: 50px;
     align-items: flex-end;
     justify-content: flex-start;
-    padding: 80px 50px 50px 0;
+    padding: 80px 50px 30px 0;
   }
 }
 .footer__logo {

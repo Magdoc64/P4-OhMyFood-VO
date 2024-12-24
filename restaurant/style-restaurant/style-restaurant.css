@@ -4,11 +4,6 @@
   font-size: 16px;
   box-sizing: border-box;
 }
-@media (min-width: 1440px) {
-  * {
-    font-size: 20px;
-  }
-}
 
 body {
   display: flex;
@@ -61,6 +56,11 @@ p {
   padding-top: 10px;
   padding-bottom: 5px;
   position: relative;
+}
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 10px;
+  }
 }
 .header__logo {
   display: flex;
@@ -228,6 +228,9 @@ main {
 .carte__menu__plat--lien-items:hover + .carte__menu__plat--lien-items--coche {
   animation: coche 800ms ease alternate forwards;
 }
+.carte__menu__plat--lien-items:not(:hover) + .carte__menu__plat--lien-items--coche {
+  animation: init-coche 800ms ease alternate forwards;
+}
 .carte__menu__plat--lien-items--text {
   display: flex;
   flex-direction: column;
@@ -315,6 +318,17 @@ main {
     opacity: 1;
     width: 16%;
     transform: translateX(-15%);
+  }
+}
+@keyframes init-coche {
+  0% {
+    opacity: 1;
+    width: 16%;
+    transform: translateX(-15%);
+  }
+  100% {
+    width: 0%;
+    transform: translateX(0);
   }
 }
 @keyframes item {
@@ -406,7 +420,7 @@ main {
     gap: 50px;
     align-items: flex-end;
     justify-content: flex-start;
-    padding: 80px 50px 50px 0;
+    padding: 80px 50px 30px 0;
   }
 }
 .footer__logo {
